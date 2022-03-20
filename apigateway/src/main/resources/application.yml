@@ -1,0 +1,39 @@
+server:
+  port: 7070
+  
+  
+eureka: 
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/
+      
+spring:
+  application:
+    name: apigateway     
+  cloud:
+    gateway:
+      disovery.locator:
+        enabled: true
+        lowerCaseServiceId: true
+      
+      routes:
+       - id: firstms
+         uri: lb://FIRSTMS
+         predicates:
+           - Path=/dummy123/**
+         filters:
+           - RewritePath=/dummy123/(?<path>.*), /$\{path}    
+       - id: secondms
+         uri: lb://SECONDMS
+         predicates:
+           - Path=/dummy456/**
+         filters:
+           - RewritePath=/dummy456/(?<path>.*), /$\{path}      
+           
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'       
