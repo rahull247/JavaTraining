@@ -21,6 +21,7 @@ public class Calculator {
 
 	public String getConnection() {
 		String str = myMethod.getDBConnection();
+		System.out.println("==>"+str);
 		if (str == null) {
 			return "NO Data Found";
 		}

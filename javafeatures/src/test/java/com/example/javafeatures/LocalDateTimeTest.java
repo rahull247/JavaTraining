@@ -23,8 +23,8 @@ public class LocalDateTimeTest {
 	
 	@Test
 	void localDate() {
-		System.out.println("---------Local DAte------------");
-		LocalDate date=LocalDate.of(2022, Month.JANUARY, 28);
+		System.out.println("---------Local Date------------");
+		LocalDate date=LocalDate.of(1995, Month.DECEMBER, 18);
 		System.out.println("Day Of Month:"+date.getDayOfMonth());
 		System.out.println("Month:"+date.getMonth());
 		System.out.println("Year:"+date.getYear());
@@ -72,7 +72,7 @@ public class LocalDateTimeTest {
 		LocalDateTime currentDateTime=LocalDateTime.now();
 		Duration duration=Duration.between(localDateTime, currentDateTime);
 		System.out.println(duration);
-		System.out.println(Duration.between(LocalTime.of(28, 17,56, 00),LocalTime.of(29, 17,56, 00) ));
+		System.out.println(Duration.between(LocalTime.of(28, 17,56, 00), LocalTime.of(29, 17,56, 00) ));
 	}
 	
 	@Test

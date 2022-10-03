@@ -45,12 +45,11 @@ public class StreamTest {
 	@Test
 	void extractStreamDataFromList() {
 		   List<User> list=new ArrayList<User>();
-		   List<String> newList;
 		   list.add(new User(1, "Rahul", 11L));
 		   list.add(new User(2, "Akshay",12L));
 		   list.add(new User(3, "Akshay",13L));                          
 		   
-			 newList=list.stream().filter(u -> u.name.startsWith("A"))
+		   List<String> newList=list.stream().filter(u -> u.name.startsWith("A"))
 					                 .map(u->u.name.toLowerCase())
 					                 .distinct()
 					                 .collect(Collectors.toList());
@@ -69,17 +68,17 @@ public class StreamTest {
          */
 		
 		 List<User> list=new ArrayList<User>();
-		   Map<String, Integer> newList;
 		   list.add(new User(1, "Rahul", 11L));
 		   list.add(new User(2, "Akshay",12L));
 		   list.add(new User(3, "Ajinkya",13L));                          
+		   list.add(new User(4, "Amit",45L));                          
 		   
-			 newList=list.stream().filter(u->u.getName().startsWith("A"))
+		   Map<String, Integer> newMap=list.stream().filter(u->u.getName().startsWith("R"))
 				.distinct()
-				.collect(Collectors.toMap(User::getName,User::getId));
+				.collect(Collectors.toMap(User::getName, User::getId));
 					                 
 			
-			newList.entrySet().forEach(p -> System.out.println(p.getKey()+ ":"+p.getValue()));
+			newMap.entrySet().forEach(p -> System.out.println(p.getKey()+ ":"+p.getValue()));
 
 		
 		
@@ -188,9 +187,9 @@ public class StreamTest {
 	@Test
 	void NatrualSort() {
 		Stream<String>stream=Stream.of("abc","xyz", "pqr");
-		Stream<String> list=stream.sorted();
+		Stream<String> sortedStream=stream.sorted();
 		
-		list.forEach(System.out::println);
+		sortedStream.forEach(System.out::println);
 		
 	}
 	
@@ -208,8 +207,8 @@ public class StreamTest {
 	@Test
 	void AggregationMin() {
 		Stream<User>stream=Stream.of(new User(1, "Rahul", 11L),
-				  new User(2, "Ganesh", 15L),
-				  new User(3, "Rahul", 12L));
+				  					 new User(2, "Ganesh", 15L),
+				  					 new User(3, "Rahul", 12L));
 		    LongStream longStream=stream.mapToLong(User::getIdNumber);
 		     //long sumOfAge=longStream.sum();
 		     //System.out.println(sumOfAge);

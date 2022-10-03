@@ -155,5 +155,7 @@ class JavaEnhanceApplicationTests {
 		System.out.println("Function:"+function.apply("Hello","World"));
 		System.out.println("Function:"+function.apply("Hello","Hello"));
 	}
+
+	
 	
 }

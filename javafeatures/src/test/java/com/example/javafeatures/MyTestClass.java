@@ -46,7 +46,7 @@ public class MyTestClass {
 	     // int max1=stream.mapToInt(Student::getMarkScience).max().getAsInt();  
 	         List <String>newStream=stream.map((s)->s.getName()).sorted().collect(Collectors.toList());
 	      //System.out.println(max1);
-	         newStream.forEach((s)->System.out.println(s));
+	         newStream.forEach(System.out::println);
 	}
 	
 	@Test
